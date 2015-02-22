@@ -40,6 +40,8 @@ function displayBlob(blob){
 	for(var i = 0; i < 4; i++){
 		$('#bottomBlob' + i).html(blob[i]);
 	}
+
+	$('#progressInfo').html(currBlobIndex + ' / ' + blobTotal);
 }
 
 function handleKeyPress(e){
@@ -61,6 +63,29 @@ function handleKeyPress(e){
 
 			currBlobBitIndex++;
 
+			if(currBlobBitIndex == 4){
+				currBlobBitIndex = 0;
+				currBlobIndex++;
+
+				clearBlobs();
+
+				if(currBlobIndex > blobTotal)
+				{
+					practicing = false;
+				}
+				else{
+					currBlob = getBlobAtIndex(currBlobIndex);
+					displayBlob(currBlob);
+				}
+			}
+
 		}
 	}	
+}
+
+function clearBlobs(){
+	for(var i = 0; i < 4; i++){
+		$('#topBlob' + i).html('');
+		$('#bottomBlob' + i).html('');
+	}
 }

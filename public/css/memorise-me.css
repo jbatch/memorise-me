@@ -56,3 +56,8 @@ html, body, #bodyContainer{
 .wrongBit {
 	color: #FF0000;
 }
+
+#progressInfo {
+	float: right;
+	margin-right: 20px;
+}

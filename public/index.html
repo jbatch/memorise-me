@@ -14,6 +14,8 @@
 			handleKeyPress(e);
 		});
 
+
+		// http://stackoverflow.com/questions/1495219/how-can-i-prevent-the-backspace-key-from-navigating-back
 		$(document).keydown(function (e) {
         var preventKeyPress;
         if (e.keyCode == 8) {
@@ -73,6 +75,7 @@
 				<div class="row" id="buttonsRow">
 					<button class="btn btn-success" onclick="startPractice()">Practice</button>
 					<button class="btn btn-success">Test</button>
+					<span id="progressInfo"></span>
 				</div>
 			</div>
 		</div>
