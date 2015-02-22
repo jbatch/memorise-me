@@ -106,7 +106,6 @@ function handleKeyPress(e){
 
 function updateBlobIndexes(){
 	currBlobBitIndex++;
-	console.log(currBlob);
 	if(currBlobBitIndex >= currBlob.length){
 		currBlobBitIndex = 0;
 		currBlobIndex++;
@@ -165,7 +164,6 @@ function fillCurrentSequences(){
 }
 
 function appendSequence(sequenceName){
-	console.log(sequenceName);
 	$('#currentSequences').append('<div onclick="removeSequence(this)" class="btn btn-danger">' 
 		 + sequenceName + 
 		 '<span class="glyphicon glyphicon-remove"><span>' + 
@@ -173,11 +171,9 @@ function appendSequence(sequenceName){
 }
 
 function removeSequence(source){
-	console.log(source.innerHTML);
 	source.remove();
 	// $('#sequenceList').find('[val="' + source.innerHTML + '"]').remove();
 	var options = $('#sequenceList').children();
-	console.log(options);
 	for(var i = 0; i < options.length; i++){
 		if(options[i].innerHTML + '<span class="glyphicon glyphicon-remove"><span></span></span>' == source.innerHTML){
 			options[i].remove();
