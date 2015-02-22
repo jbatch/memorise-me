@@ -41,13 +41,23 @@ function displayBlob(blob){
 		$('#bottomBlob' + i).html(blob[i]);
 	}
 
-	$('#progressInfo').html(currBlobIndex + ' / ' + blobTotal);
+	updateProgress();
+}
+
+function updateProgress(){
+	$('#progressInfo').html((currBlobIndex + 1)+ ' / ' + blobTotal);
 }
 
 function handleKeyPress(e){
 	if(practicing || testing){
 		if(e.which == 8){ //BACKSPACE
 			console.log('Backspace');
+			if(currBlobBitIndex > 0){
+				currBlobBitIndex--;
+				$('#topBlob' + currBlobBitIndex).removeClass('rightBit');
+				$('#topBlob' + currBlobBitIndex).removeClass('wrongBit');
+				$('#topBlob' + currBlobBitIndex).html('');
+			}
 		}
 		else{
 			var letter = String.fromCharCode(e.which);
@@ -69,7 +79,7 @@ function handleKeyPress(e){
 
 				clearBlobs();
 
-				if(currBlobIndex > blobTotal)
+				if(currBlobIndex >= blobTotal)
 				{
 					practicing = false;
 				}
@@ -77,6 +87,7 @@ function handleKeyPress(e){
 					currBlob = getBlobAtIndex(currBlobIndex);
 					displayBlob(currBlob);
 				}
+				
 			}
 
 		}
@@ -87,5 +98,9 @@ function clearBlobs(){
 	for(var i = 0; i < 4; i++){
 		$('#topBlob' + i).html('');
 		$('#bottomBlob' + i).html('');
+		$('#topBlob' + i).removeClass('rightBit');
+		$('#topBlob' + i).removeClass('wrongBit');
+		$('#bottomBlob' + i).removeClass('rightBit');
+		$('#bottomBlob' + i).removeClass('wrongBit');
 	}
 }
