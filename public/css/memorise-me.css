@@ -96,3 +96,17 @@ html, body, #bodyContainer{
 	-webkit-transform: translateX(300px);
 	transform: translateX(300px);
 }
+
+#newSequence > div > p {
+	/*width: 50px;*/
+}
+
+#currentSequences > div {
+	display: table;
+	margin-bottom: 20px;
+	width: 50%;
+}
+
+#addNewSeqBtn {
+	margin-top: 20px;
+}

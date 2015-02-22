@@ -1,4 +1,4 @@
-var sequenceChoice = "PI"
+var sequenceChoice = "PI";
 var sequence = [];
 var blobSize = 4;
 var currBlob = [];
@@ -107,7 +107,61 @@ function clearBlobs(){
 
 function toggleNav(){
 	$('#site-wrapper').toggleClass('show-nav');
+	fillCurrentSequences();
 }
+
+function fillCurrentSequences(){
+	$('#currentSequences').empty();
+	var options = $('#sequenceList').children('option');
+	for(var i = 0; i < options.length; i++){
+		appendSequence(options[i].innerHTML);
+	}
+}
+
+function appendSequence(sequenceName){
+	console.log(sequenceName);
+	$('#currentSequences').append('<div onclick="removeSequence(this)" class="btn btn-danger">'
+		 + sequenceName + 
+		 '</div>');
+}
+
+function removeSequence(source){
+	console.log(source)
+	source.remove();
+	// $('#sequenceList').find('[val="' + source.innerHTML + '"]').remove();
+	var options = $('#sequenceList').children();
+	console.log(options);
+	for(var i = 0; i < options.length; i++){
+		if(options[i].innerHTML == source.innerHTML){
+			options[i].remove();
+		}
+	}
+}
+
+function addSequence(){
+	var sequenceName = $('#nameField').val();
+	var sequenceValue = $('#sequenceField').val().split(',');
+
+	if(validateSequence(sequenceValue)){
+		if(!sequences[sequenceName]){
+			sequences[sequenceName] = sequenceValue;
+			$('#sequenceList').append($('<option></option>').html(sequenceName));
+			$('#nameField').val('')
+			$('#sequenceField').val('')
+			fillCurrentSequences();
+		}
+		else{
+			alert("Sequence name already used!")
+		}
+	}
+	
+}
+
+function validateSequence(sequence){
+	return true;
+	// TODO
+}
+
 
 function init(){
 	$(document).keypress(function(e){

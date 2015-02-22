@@ -57,12 +57,26 @@
 		    		</select>
 				</div>
 				<div>
-					<a href="#" class="toggle-nav" onclick="toggleNav()">Taggle Nav</a>
+					<a href="#" class="toggle-nav" onclick="toggleNav()">Toggle Nav</a>
 				</div>
 	    	</div>
 
 	    	<div id="site-menu">
-	    		Test
+	    		<h2>Add Custom Sequence</h1>
+	    		<hr>
+	    		<div id="currentSequences">
+
+	    		</div>
+	    		<hr>
+	    		<div id="newSequence">
+	    			<div id="nameFieldRow">
+	    				<p>Name: </p><input type="text" class="form-control" id="nameField">
+	    			</div>
+	    			<div id="sequenceFieldRow">
+	    				<p>Sequence: </p><input type="text" class="form-control" id="sequenceField">
+	    			</div>
+	    			<button class="btn btn-success" id="addNewSeqBtn" onclick="addSequence()">Add</button>
+	    		</div>
 	    	</div>
 		</div>
 	</div>
