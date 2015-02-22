@@ -11,6 +11,10 @@ hr {
 	margin-top: 10px;
 }
 
+.glyphicon-cog {
+	float: right;
+}
+
 #boxRow {
 	height: calc(372px + 5%);
 }
@@ -91,7 +95,7 @@ hr {
 	transition: .3s ease all;
 }
 
-#site-menu {
+#add-sequence-menu {
 	width: 300px;
 	height: 100%;
 	position: absolute;
@@ -101,9 +105,28 @@ hr {
 	padding: 15px;
 }
 
-#site-wrapper.show-nav #site-canvas {
+#settings-menu {
+	width: 300px;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	right: -320px;
+	background: #428bca;
+	padding: 15px;
+}
+
+#settings-menu > h2, #add-sequence-menu > h2 {
+	text-align: center;
+}
+
+#site-wrapper.show-left #site-canvas {
 	-webkit-transform: translateX(300px);
 	transform: translateX(300px);
+}
+
+#site-wrapper.show-right #site-canvas {
+	-webkit-transform: translateX(-300px);
+	transform: translateX(-300px);
 }
 
 #newSequence > div > p {

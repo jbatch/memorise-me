@@ -18,10 +18,13 @@
 		<div id="site-canvas">
 			<div class="row">
 				<div class="col-md-4">
-					<span class="glyphicon glyphicon-plus-sign btn" aria-hidden="true" onclick="toggleNav()"></span>
+					<span class="glyphicon glyphicon-plus-sign btn" onclick="toggleLeftMenu()"><span>
 				</div>
 				<div class="col-md-4">
 					<h1>Memorise Me</h1>
+				</div>
+				<div class="col-md-4">
+					<span class="glyphicon glyphicon-cog btn" onclick="toggleRightMenu()"><span>
 				</div>
 			</div>
 			<hr>
@@ -63,7 +66,7 @@
 				</div>
 	    	</div>
 
-	    	<div id="site-menu">
+	    	<div id="add-sequence-menu">
 	    		<h2>Add Custom Sequence</h1>
 	    		<hr>
 	    		<div id="currentSequences">
@@ -79,6 +82,11 @@
 	    			</div>
 	    			<button class="btn btn-success" id="addNewSeqBtn" onclick="addSequence()">Add</button>
 	    		</div>
+	    	</div>
+
+	    	<div id="settings-menu">
+	    		<h2>Settings</h1>
+	    		<hr>
 	    	</div>
 		</div>
 	</div>

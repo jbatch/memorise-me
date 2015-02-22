@@ -137,10 +137,15 @@ function clearBlobs(){
 	}
 }
 
-function toggleNav(){
-	$('#site-wrapper').toggleClass('show-nav');
+function toggleLeftMenu(){
+	$('#site-wrapper').toggleClass('show-left');
 	fillCurrentSequences();
 	menuOpen = menuOpen ? false : true;
+}
+
+function toggleRightMenu(){
+	$('#site-wrapper').toggleClass('show-right');
+	// menuOpen = menuOpen ? false : true;
 }
 
 function fillCurrentSequences(){
