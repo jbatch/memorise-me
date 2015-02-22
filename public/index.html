@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Memorise Me</title>
+	<meta name="description" content="An app to help you memorise sequences">
+	<meta name="author" content="Josh Batchelor">
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/memorise-me.css">
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/memorise-me.js"></script>
+</head>
+<body>
+	<div class="container" id="bodyContainer">
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				<h1>Memorise Me</h1>
+			</div>
+		</div>
+		<hr>
+		<div class="row" id="boxRow">
+			<div class="col-md-4"></div>
+			<div class="col-md-4 box">
+				<div class="row" id="sequenceSpace">
+					<div id="topRow" class="blobRow">
+						<span class="blobBit"></span>
+						<span class="blobBit"></span>
+						<span class="blobBit"></span>
+						<span class="blobBit"></span>
+					</div>
+					<div id="bottomRow" class="blobRow">
+						<span class="blobBit"></span>
+						<span class="blobBit"></span>
+						<span class="blobBit"></span>
+						<span class="blobBit"></span>
+					</div>
+				</div>
+				
+				<div class="row" id="buttonsRow">
+					<button class="btn btn-success" onclick="startPractice()">Practice</button>
+					<button class="btn btn-success">Test</button>
+				</div>
+			</div>
+		</div>
+		<div class="row" id="dropdownRow">
+			<div class="col-md-4 col-md-offset-4">
+				<p>Memorise: </p>
+	    		<select class="form-control col-md-1 selector" id="sequenceList">
+	    			<option selected>PI</option>
+	    			<option>CreditCard</option>
+	    		</select>
+			</div>
+    	</div>
+	</div>
+</body>
+</html>

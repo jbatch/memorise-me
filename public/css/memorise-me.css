@@ -1,0 +1,58 @@
+html, body, #bodyContainer{
+	height: 100%;
+}
+
+#boxRow {
+	height: 50%;
+}
+
+.box {
+	margin-top: 20%;
+	border: 2px solid black;
+	border-radius: 10px;
+	background-color: #6699FF;
+	height: 60%; !important
+}
+
+#dropdownRow {
+	/*float: left;*/
+}
+
+#sequenceList {
+	width: 100px;
+	display: inline-block;
+}
+
+#sequenceSpace {
+	height: 90%;
+}
+
+#buttonsRow {
+	height: 10%;
+	margin-left: 30%;
+}
+
+.blobRow {
+	margin-left: 25%;
+}
+
+#topRow {
+	margin-top: 30%;
+}
+
+#bottomRow {
+
+}
+
+.blobBit {
+	font-size: 3em;
+	margin-left: 15px;
+}
+
+.rightBit {
+	color: #00FF00;
+}
+
+.wrongBit {
+	color: #FF0000;
+}
