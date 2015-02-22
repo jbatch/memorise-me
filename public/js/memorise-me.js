@@ -53,9 +53,10 @@ function getBlobAtIndex(index){
 	var blob = [];
 
 	for(var i = 0; i < 4; i++){
-		blob.push(sequence[index * blobSize + i])
+		if(sequence[index * blobSize + i]){
+			blob.push(sequence[index * blobSize + i]);
+		}
 	}
-
 	return blob;
 }
 
@@ -98,31 +99,34 @@ function handleKeyPress(e){
 				$('#topBlob' + currBlobBitIndex).addClass('wrongBit');
 			}
 
-			currBlobBitIndex++;
-
-			if(currBlobBitIndex == 4){
-				currBlobBitIndex = 0;
-				currBlobIndex++;
-
-				clearBlobs();
-
-				if(currBlobIndex >= blobTotal)
-				{
-					if(testing){
-						showResults();
-					}
-					practicing = false;
-					testing = false;
-				}
-				else{
-					currBlob = getBlobAtIndex(currBlobIndex);
-					
-					if(practicing){
-						displayBlob(currBlob);
-					}
-				}	
-			}
+			updateBlobIndexes();
 		}		
+	}	
+}
+
+function updateBlobIndexes(){
+	currBlobBitIndex++;
+	console.log(currBlob);
+	if(currBlobBitIndex >= currBlob.length){
+		currBlobBitIndex = 0;
+		currBlobIndex++;
+
+		clearBlobs();
+	}
+	if(currBlobIndex >= blobTotal)
+	{
+		if(testing){
+			showResults();
+		}
+		practicing = false;
+		testing = false;
+	}
+	else{
+		currBlob = getBlobAtIndex(currBlobIndex);
+		
+		if(practicing){
+			displayBlob(currBlob);
+		}
 	}	
 }
 
