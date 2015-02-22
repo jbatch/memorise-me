@@ -9,6 +9,11 @@
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 	<script type="text/javascript" src="bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/memorise-me.js"></script>
+	<script type="text/javascript">
+		$(document).keypress(function(e){
+			handleKeyPress(e);
+		});
+	</script>
 </head>
 <body>
 	<div class="container" id="bodyContainer">
@@ -30,10 +35,10 @@
 						<span class="blobBit"></span>
 					</div>
 					<div id="bottomRow" class="blobRow">
-						<span class="blobBit"></span>
-						<span class="blobBit"></span>
-						<span class="blobBit"></span>
-						<span class="blobBit"></span>
+						<span class="blobBit" id="blob1"></span>
+						<span class="blobBit" id="blob2"></span>
+						<span class="blobBit" id="blob3"></span>
+						<span class="blobBit" id="blob4"></span>
 					</div>
 				</div>
 				

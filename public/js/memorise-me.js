@@ -1,4 +1,5 @@
 var sequenceChoice = "PI"
+var sequence = [];
 var blobSize = 4;
 var currBlob = [];
 var currBlobIndex = 0;
@@ -11,5 +12,30 @@ var sequences = {
 
 function startPractice() {
 	sequenceChoice = $('#sequenceList').val();
-	console.log(sequences[sequenceChoice]);
+	sequence = sequences[sequenceChoice];
+	blobTotal = Math.ceil( sequence.length / blobSize );
+	currBlobIndex = 0;
+	currBlob = getBlobAtIndex(currBlobIndex);
+
+	displayBlob(currBlob);
+}
+
+function getBlobAtIndex(index){
+	var blob = [];
+
+	for(var i = 0; i < 4; i++){
+		blob.push(sequence[index * blobSize + i])
+	}
+
+	return blob;
+}
+
+function displayBlob(blob){
+	for(var i = 0; i < 4; i++){
+		$('#blob' + (i + 1)).html(blob[i]);
+	}
+}
+
+function handleKeyPress(e){
+	console.log(String.fromCharCode(e.which));
 }
