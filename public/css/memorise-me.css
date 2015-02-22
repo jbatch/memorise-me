@@ -10,12 +10,16 @@ h1, h4 {
 	text-align: center;
 }
 
-.glyphicon {
+.glyphicon-cog, .glyphicon-plus-sign {
 	font-size: 40px;
 	margin-top: 10px;
 }
 
 .glyphicon-cog {
+	float: right;
+}
+
+.glyphicon-remove {
 	float: right;
 }
 
