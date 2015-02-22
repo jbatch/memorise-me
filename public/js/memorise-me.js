@@ -205,12 +205,21 @@ function addSequence(){
 			alert("Sequence name already used!")
 		}
 	}
-	
+	else {
+		alert('Invalid sequence!');
+	}
 }
 
 function validateSequence(sequence){
-	return true;
-	// TODO
+	var valid = true;
+
+	for(var i = 0; i < sequence.length; i++){
+		if(sequence[i].length != 1){
+			valid = false;
+		}
+	}
+
+	return valid;
 }
 
 
