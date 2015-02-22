@@ -1,0 +1,14 @@
+{
+  "author": "Josh Batchelor",
+  "name": "memorise-me",
+  "version": "0.0.1",
+  "description": "An app to help you memorise sequences",
+  "dependencies": {
+    "bootstrap": "^3.3.2",
+    "express": "^4.11.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jbatch/connect-4"
+  }
+}
