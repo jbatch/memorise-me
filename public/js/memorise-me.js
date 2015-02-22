@@ -6,6 +6,8 @@ var currBlobBitIndex = 0;
 var currBlobIndex = 0;
 var blobTotal = 0;
 
+var correct;
+
 var sequences = {
 	PI: [3,1,4,1,5,9,2,6,5,3,5,9],
 	CreditCard: [5,2,8,0,1,3,3,7,9,9,9,9,9,9,9,9]
@@ -13,8 +15,30 @@ var sequences = {
 
 var practicing = false;
 var testing = false;
+var menuOpen = false;
 
 function startPractice() {
+	if(!menuOpen){
+		initialiseSequence();
+
+		displayBlob(currBlob);
+		practicing = true;
+		testing = false;
+	}
+}
+
+function startTest(){
+	if(!menuOpen){
+		initialiseSequence();
+
+		updateProgress();
+		practicing = false;
+		testing = true;
+		correct = 0;
+	}
+}
+
+function initialiseSequence(){
 	sequenceChoice = $('#sequenceList').val();
 	sequence = sequences[sequenceChoice];
 	blobTotal = Math.ceil( sequence.length / blobSize );
@@ -22,8 +46,7 @@ function startPractice() {
 	currBlobBitIndex = 0;
 	currBlob = getBlobAtIndex(currBlobIndex);
 
-	displayBlob(currBlob);
-	practicing = true;
+	clearBlobs();
 }
 
 function getBlobAtIndex(index){
@@ -48,10 +71,14 @@ function updateProgress(){
 	$('#progressInfo').html((currBlobIndex + 1)+ ' / ' + blobTotal);
 }
 
+function showResults(){
+	$('#results').html('Results: ' + correct + ' / ' + sequence.length);
+	$('#resultsRow').css('display', 'flex')
+}
+
 function handleKeyPress(e){
-	if(practicing || testing){
-		if(e.which == 8){ //BACKSPACE
-			console.log('Backspace');
+	if(practicing || testing && !menuOpen){
+		if(e.which == 8 && practicing){ //BACKSPACE
 			if(currBlobBitIndex > 0){
 				currBlobBitIndex--;
 				$('#topBlob' + currBlobBitIndex).removeClass('rightBit');
@@ -63,9 +90,9 @@ function handleKeyPress(e){
 			var letter = String.fromCharCode(e.which);
 			$('#topBlob' + currBlobBitIndex).html(letter);
 			
-			console.log('Letter: ' + String.fromCharCode(e.which));
 			if(letter == currBlob[currBlobBitIndex]){
 				$('#topBlob' + currBlobBitIndex).addClass('rightBit');
+				correct++;
 			}
 			else{
 				$('#topBlob' + currBlobBitIndex).addClass('wrongBit');
@@ -81,16 +108,21 @@ function handleKeyPress(e){
 
 				if(currBlobIndex >= blobTotal)
 				{
+					if(testing){
+						showResults();
+					}
 					practicing = false;
+					testing = false;
 				}
 				else{
 					currBlob = getBlobAtIndex(currBlobIndex);
-					displayBlob(currBlob);
-				}
-				
+					
+					if(practicing){
+						displayBlob(currBlob);
+					}
+				}	
 			}
-
-		}
+		}		
 	}	
 }
 
@@ -108,6 +140,7 @@ function clearBlobs(){
 function toggleNav(){
 	$('#site-wrapper').toggleClass('show-nav');
 	fillCurrentSequences();
+	menuOpen = menuOpen ? false : true;
 }
 
 function fillCurrentSequences(){

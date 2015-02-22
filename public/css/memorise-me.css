@@ -119,3 +119,14 @@ hr {
 #addNewSeqBtn {
 	margin-top: 20px;
 }
+
+#resultsRow {
+	/*visibility: hidden;*/
+	display: none;
+}
+
+#resultsRow > p {
+	margin-right: 30px;
+	margin-left: 15%;
+	font-size: 24px;
+}
