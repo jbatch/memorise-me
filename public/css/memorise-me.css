@@ -6,6 +6,10 @@ hr {
 	/*margin: 0;*/
 }
 
+h1, h4 {
+	text-align: center;
+}
+
 .glyphicon {
 	font-size: 40px;
 	margin-top: 10px;

@@ -145,7 +145,11 @@ function toggleLeftMenu(){
 
 function toggleRightMenu(){
 	$('#site-wrapper').toggleClass('show-right');
-	// menuOpen = menuOpen ? false : true;
+	menuOpen = menuOpen ? false : true;
+}
+
+function showDetailedResults(){
+	$('#resultsModal').modal('show');
 }
 
 function fillCurrentSequences(){
