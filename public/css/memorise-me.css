@@ -2,16 +2,20 @@ html, body, #bodyContainer{
 	height: 100%;
 }
 
+hr {
+	/*margin: 0;*/
+}
+
 #boxRow {
-	height: 50%;
+	height: calc(372px + 5%);
 }
 
 .box {
-	margin-top: 20%;
+	margin-top: 5%;
 	border: 2px solid black;
 	border-radius: 10px;
 	background-color: #6699FF;
-	height: 60%; !important
+	height: 372px; !important
 }
 
 #dropdownRow {
@@ -19,7 +23,7 @@ html, body, #bodyContainer{
 }
 
 #sequenceList {
-	width: 100px;
+	width: 120px;
 	display: inline-block;
 }
 
@@ -28,6 +32,8 @@ html, body, #bodyContainer{
 }
 
 #buttonsRow {
+	position: relative;
+	bottom: 20px;
 	height: 10%;
 	margin-left: 30%;
 }
@@ -37,7 +43,7 @@ html, body, #bodyContainer{
 }
 
 #topRow {
-	margin-top: 30%;
+	margin-top: 20%;
 }
 
 #bottomRow {
@@ -78,8 +84,6 @@ html, body, #bodyContainer{
 	transform: translateX(0);
 	-webkit-transition: .3s ease all;
 	transition: .3s ease all;
-
-	padding: 5% 0; /* Temp: Just spacing. */
 }
 
 #site-menu {
