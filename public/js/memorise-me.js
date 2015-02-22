@@ -182,7 +182,16 @@ function removeSequence(source){
 
 function addSequence(){
 	var sequenceName = $('#nameField').val();
-	var sequenceValue = $('#sequenceField').val().split(',');
+	var sequenceValue = $('#sequenceField').val();
+	if(sequenceValue.indexOf(',') > -1){
+		sequenceValue = sequenceValue.split(',');
+	}
+	else if(sequenceValue.indexOf(' ') > -1){
+		sequenceValue = sequenceValue.split(' ');
+	}
+	else{
+		sequenceValue = sequenceValue.split('');
+	}
 
 	if(validateSequence(sequenceValue)){
 		if(!sequences[sequenceName]){
