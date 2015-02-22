@@ -10,84 +10,61 @@
 	<script type="text/javascript" src="bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/memorise-me.js"></script>
 	<script type="text/javascript">
-		$(document).keypress(function(e){
-			handleKeyPress(e);
-		});
-
-
-		// http://stackoverflow.com/questions/1495219/how-can-i-prevent-the-backspace-key-from-navigating-back
-		$(document).keydown(function (e) {
-        var preventKeyPress;
-        if (e.keyCode == 8) {
-        	handleKeyPress(e);
-            var d = e.srcElement || e.target;
-            switch (d.tagName.toUpperCase()) {
-                case 'TEXTAREA':
-                    preventKeyPress = d.readOnly || d.disabled;
-                    break;
-                case 'INPUT':
-                    preventKeyPress = d.readOnly || d.disabled ||
-                        (d.attributes["type"] && $.inArray(d.attributes["type"].value.toLowerCase(), ["radio", "checkbox", "submit", "button"]) >= 0);
-                    break;
-                case 'DIV':
-                    preventKeyPress = d.readOnly || d.disabled || !(d.attributes["contentEditable"] && d.attributes["contentEditable"].value == "true");
-                    break;
-                default:
-                    preventKeyPress = true;
-                    break;
-            }
-        }
-        else
-            preventKeyPress = false;
-
-        if (preventKeyPress)
-            e.preventDefault();
-    });
+		init();
 	</script>
 </head>
 <body>
-	<div class="container" id="bodyContainer">
-		<div class="row">
-			<div class="col-md-4"></div>
-			<div class="col-md-4">
-				<h1>Memorise Me</h1>
-			</div>
-		</div>
-		<hr>
-		<div class="row" id="boxRow">
-			<div class="col-md-4"></div>
-			<div class="col-md-4 box">
-				<div class="row" id="sequenceSpace">
-					<div id="topRow" class="blobRow">
-						<span class="blobBit" id="topBlob0"></span>
-						<span class="blobBit" id="topBlob1"></span>
-						<span class="blobBit" id="topBlob2"></span>
-						<span class="blobBit" id="topBlob3"></span>
-					</div>
-					<div id="bottomRow" class="blobRow">
-						<span class="blobBit" id="bottomBlob0"></span>
-						<span class="blobBit" id="bottomBlob1"></span>
-						<span class="blobBit" id="bottomBlob2"></span>
-						<span class="blobBit" id="bottomBlob3"></span>
-					</div>
-				</div>
-				
-				<div class="row" id="buttonsRow">
-					<button class="btn btn-success" onclick="startPractice()">Practice</button>
-					<button class="btn btn-success">Test</button>
-					<span id="progressInfo"></span>
+	<div class="container" id="site-wrapper">
+		<div id="site-canvas">
+			<div class="row">
+				<div class="col-md-4"></div>
+				<div class="col-md-4">
+					<h1>Memorise Me</h1>
 				</div>
 			</div>
-		</div>
-		<div class="row" id="dropdownRow">
-			<div class="col-md-4 col-md-offset-4">
-				<p>Memorise: </p>
-	    		<select class="form-control col-md-1 selector" id="sequenceList">
-	    			<option selected>PI</option>
-	    			<option>CreditCard</option>
-	    		</select>
+			<hr>
+			<div class="row" id="boxRow">
+				<div class="col-md-4"></div>
+				<div class="col-md-4 box">
+					<div class="row" id="sequenceSpace">
+						<div id="topRow" class="blobRow">
+							<span class="blobBit" id="topBlob0"></span>
+							<span class="blobBit" id="topBlob1"></span>
+							<span class="blobBit" id="topBlob2"></span>
+							<span class="blobBit" id="topBlob3"></span>
+						</div>
+						<div id="bottomRow" class="blobRow">
+							<span class="blobBit" id="bottomBlob0"></span>
+							<span class="blobBit" id="bottomBlob1"></span>
+							<span class="blobBit" id="bottomBlob2"></span>
+							<span class="blobBit" id="bottomBlob3"></span>
+						</div>
+					</div>
+					
+					<div class="row" id="buttonsRow">
+						<button class="btn btn-success" onclick="startPractice()">Practice</button>
+						<button class="btn btn-success">Test</button>
+						<span id="progressInfo"></span>
+					</div>
+				</div>
 			</div>
-    	</div>
+			<div class="row" id="dropdownRow">
+				<div class="col-md-4 col-md-offset-4">
+					<p>Memorise: </p>
+		    		<select class="form-control col-md-1 selector" id="sequenceList">
+		    			<option selected>PI</option>
+		    			<option>CreditCard</option>
+		    		</select>
+				</div>
+				<div>
+					<a href="#" class="toggle-nav" onclick="toggleNav()">Taggle Nav</a>
+				</div>
+	    	</div>
+
+	    	<div id="site-menu">
+	    		Test
+	    	</div>
+		</div>
 	</div>
 </body>
 </html>

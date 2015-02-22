@@ -104,3 +104,58 @@ function clearBlobs(){
 		$('#bottomBlob' + i).removeClass('wrongBit');
 	}
 }
+
+function toggleNav(){
+	$('#site-wrapper').toggleClass('show-nav');
+}
+
+function init(){
+	$(document).keypress(function(e){
+		handleKeyPress(e);
+	});
+
+
+	// http://stackoverflow.com/questions/1495219/how-can-i-prevent-the-backspace-key-from-navigating-back
+	$(document).keydown(function (e) {
+	    var preventKeyPress;
+	    if (e.keyCode == 8) {
+	    	handleKeyPress(e);
+	        var d = e.srcElement || e.target;
+	        switch (d.tagName.toUpperCase()) {
+	            case 'TEXTAREA':
+	                preventKeyPress = d.readOnly || d.disabled;
+	                break;
+	            case 'INPUT':
+	                preventKeyPress = d.readOnly || d.disabled ||
+	                    (d.attributes["type"] && $.inArray(d.attributes["type"].value.toLowerCase(), ["radio", "checkbox", "submit", "button"]) >= 0);
+	                break;
+	            case 'DIV':
+	                preventKeyPress = d.readOnly || d.disabled || !(d.attributes["contentEditable"] && d.attributes["contentEditable"].value == "true");
+	                break;
+	            default:
+	                preventKeyPress = true;
+	                break;
+	        }
+	    }
+	    else
+	        preventKeyPress = false;
+
+	    if (preventKeyPress)
+	        e.preventDefault();
+	});
+
+// https://scotch.io/tutorials/off-canvas-menus-with-css3-transitions-and-transforms
+
+	$('.toggle-nav').click(function() {
+		toggleNav();
+	});
+};
+
+
+
+
+
+
+
+
+
