@@ -13,6 +13,34 @@
 		$(document).keypress(function(e){
 			handleKeyPress(e);
 		});
+
+		$(document).keydown(function (e) {
+        var preventKeyPress;
+        if (e.keyCode == 8) {
+        	handleKeyPress(e);
+            var d = e.srcElement || e.target;
+            switch (d.tagName.toUpperCase()) {
+                case 'TEXTAREA':
+                    preventKeyPress = d.readOnly || d.disabled;
+                    break;
+                case 'INPUT':
+                    preventKeyPress = d.readOnly || d.disabled ||
+                        (d.attributes["type"] && $.inArray(d.attributes["type"].value.toLowerCase(), ["radio", "checkbox", "submit", "button"]) >= 0);
+                    break;
+                case 'DIV':
+                    preventKeyPress = d.readOnly || d.disabled || !(d.attributes["contentEditable"] && d.attributes["contentEditable"].value == "true");
+                    break;
+                default:
+                    preventKeyPress = true;
+                    break;
+            }
+        }
+        else
+            preventKeyPress = false;
+
+        if (preventKeyPress)
+            e.preventDefault();
+    });
 	</script>
 </head>
 <body>
@@ -29,16 +57,16 @@
 			<div class="col-md-4 box">
 				<div class="row" id="sequenceSpace">
 					<div id="topRow" class="blobRow">
-						<span class="blobBit"></span>
-						<span class="blobBit"></span>
-						<span class="blobBit"></span>
-						<span class="blobBit"></span>
+						<span class="blobBit" id="topBlob0"></span>
+						<span class="blobBit" id="topBlob1"></span>
+						<span class="blobBit" id="topBlob2"></span>
+						<span class="blobBit" id="topBlob3"></span>
 					</div>
 					<div id="bottomRow" class="blobRow">
-						<span class="blobBit" id="blob1"></span>
-						<span class="blobBit" id="blob2"></span>
-						<span class="blobBit" id="blob3"></span>
-						<span class="blobBit" id="blob4"></span>
+						<span class="blobBit" id="bottomBlob0"></span>
+						<span class="blobBit" id="bottomBlob1"></span>
+						<span class="blobBit" id="bottomBlob2"></span>
+						<span class="blobBit" id="bottomBlob3"></span>
 					</div>
 				</div>
 				
